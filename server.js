@@ -1,13 +1,15 @@
 import { createTransport } from 'nodemailer';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const TEST_MAIL = 'eleazar.littel@ethereal.email'
 
 const transporter = createTransport({
-   host: 'smtp.ethereal.email',
-   port: 587,
+   host: process.env.HOST,
+   port: process.env.portMail,
    auth: {
        user: TEST_MAIL,
-       pass: 'TSQYYC2fACEDrQpqpH'
+       pass: process.env.mailPwd
    }
 });
 
